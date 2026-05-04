@@ -1,0 +1,10 @@
+# build files
+/bin/
+/test/
+*.o
+*.d
+*.out
+
+# IDE
+.vscode/
+.vs

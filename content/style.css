@@ -1,0 +1,103 @@
+:root {
+  /* dark mode colors */
+  --bg-color: #1e1e1e;
+  --text-color: #e6e6e6;
+  --code-bg: #2a2a2a;
+
+  --comment-color: #8b949e;
+  --built-in-color: #79c0ff;
+  --literal-color: #79c0ff;
+  --number-color: #ffa657;
+  --string-color: #a5d6ff;
+  --keyword-color: #ff7b72;
+  --link-color: #58a6ff;
+}
+
+:root[data-theme="light"] {
+  /* light mode colors */
+  --bg-color: #ffffff;
+  --text-color: #282727;
+  --code-bg: #f6f8fa;
+
+  --comment-color: #6a737d;
+  --built-in-color: #005cc5;
+  --literal-color: #005cc5;
+  --number-color: #b31d28;
+  --string-color: #032f62;
+  --keyword-color: #d73a49;
+  --link-color: #2d67c4
+}
+
+/* syntax highlighting */
+.hljs-comment { color: var(--comment-color); font-style: italic; }
+.hljs-built_in { color: var(--built-in-color); }
+.hljs-literal  { color: var(--literal-color); }
+.hljs-number   { color: var(--number-color); }
+.hljs-string   { color: var(--string-color); }
+.hljs-keyword  { color: var(--keyword-color); font-weight: bold; }
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 800px;   /* controls column width */
+  margin: 0 auto;     /* centers horizontally */
+  padding: 20px;
+}
+
+img {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  display: block;
+}
+
+video {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1rem;
+  background: var(--code-bg);
+  border-radius: 8px;
+}
+
+code {
+  white-space: pre;
+  font-family: monospace;
+}
+
+/* hyperlinks */
+a {
+  color: var(--link-color);
+}
+
+.header_space {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-btn {
+  padding: 0.6rem 1rem;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.theme-btn:hover {
+  background: rgba(127, 127, 127, 0.12);
+}

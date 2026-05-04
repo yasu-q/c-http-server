@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="theme.js"></script>
+</head>
+<body>
+    <div class="container">
+       <div class="header_space">
+           <h1 id="http-server">http-server</h1>
+           <button id="theme-toggle" class="theme-btn" type="button">light</button>
+       </div>
+       <hr>
+        <p>A simple http server implemented in C. Created as an educational project. Not meant for actual use. </p>
+        <blockquote>
+        <p>Built for Linux and has only been tested on Ubuntu 24.04.04 on WSL2.</p>
+        </blockquote>
+        <h2 id="overview">Overview</h2>
+        <p>http-server allows you to serve basic static files over http. It supports <em>only</em> GET requests, and it can serve files from a specified directory. It also has some basic error handling for common HTTP errors. It can serve basic static files (html, css, js, png, jpg, and even mp4 somehow!). </p>
+        <p>http-server also supports some basic terminal commands. While the program is running, type <code>help</code> for a list of commands</p>
+        <h2 id="building-and-running">Building and Running</h2>
+        <p>Requires <code>gcc</code></p>
+        <h3 id="1-clone-the-repository">1. Clone the repository</h3>
+        <pre><code class="lang-bash">git <span class="hljs-keyword">clone</span> <span class="hljs-title">&lt;repository-url</span>&gt;
+        </code></pre>
+        <h3 id="2-build-the-project-using-the-provided-makefile">2. Build the project using the provided Makefile</h3>
+        <pre><code class="lang-bash">make bin/http-<span class="hljs-keyword">server</span>
+        </code></pre>
+        <h3 id="3-run-the-server">3. Run the server</h3>
+        <pre><code class="lang-bash">.<span class="hljs-meta-keyword">/bin/</span>http-server <span class="hljs-params">&lt;directory-to-serve&gt;</span> <span class="hljs-params">&lt;port&gt;</span>
+        </code></pre>
+        <p>e.g: serve the included <code>content/</code> directory on port 8080:</p>
+        <pre><code class="lang-bash">./<span class="hljs-keyword">bin/http-server </span>./content <span class="hljs-number">8080</span>
+        </code></pre>
+        <p>Running with no arguments defaults to port <code>3490</code> and the <code>./content</code> directory.</p>
+        <p>Then open a browser and navigate to <code>http://localhost:&lt;port&gt;/</code></p>
+        <h2 id="usage">Usage</h2>
+        <p>Once the server is running, you can start accepting connections. That&#39;s all. You can also play around with the commands to see information regarding the server and connections.</p>
+        <table>
+        <thead>
+        <tr>
+        <th>Command</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><code>help</code></td>
+        <td>List all available commands</td>
+        </tr>
+        <tr>
+        <td><code>server</code></td>
+        <td>Show server info (IP, port, backlog)</td>
+        </tr>
+        <tr>
+        <td><code>connections</code></td>
+        <td>Show current active connections</td>
+        </tr>
+        <tr>
+        <td><code>uptime</code></td>
+        <td>Show how long the server has been running</td>
+        </tr>
+        <tr>
+        <td><code>notifs</code></td>
+        <td>Toggle connection/request notifications</td>
+        </tr>
+        <tr>
+        <td><code>quit</code></td>
+        <td>Shut down the server</td>
+        </tr>
+        </tbody>
+        </table>
+        <hr>
+        <a href="examples.html" class="button">See more examples</a>
+    </div>
+</body>
+</html>
