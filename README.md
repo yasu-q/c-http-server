@@ -1,5 +1,5 @@
 # http-server
-A simple http server implented in C. Created as an educational project. Not meant for actual use. 
+A simple http server implemented in C. Created as an educational project. Not meant for actual use. 
 
 > Built for Linux and has only been tested on Ubuntu 24.04.04 on WSL2.
 
