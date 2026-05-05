@@ -449,7 +449,8 @@ int new_request(Http_Request *request, char *data) {
     }
 
     // Set everything
-    request->request_line = *request_line;
+    request->request_line = *request_line; // Struct copy
+    free(request_line); // Free the temporary allocation; fields are now owned by request
     request->headers = headers;
     request->body = body; // Remember, this *may* be NULL
 

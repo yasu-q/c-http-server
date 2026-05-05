@@ -247,7 +247,7 @@ int Http_Server_handleclient(Http_Server *server, int client_index, char *dir) {
     }
 
     // get bytes
-    bytes_received = recv(server->pfds[client_index].fd, buf, sizeof(buf), 0);
+    bytes_received = recv(server->pfds[client_index].fd, buf, sizeof(buf) - 1, 0);
     if (bytes_received < 0) {
         // sometimes, when the client disconnects in a certain way, recv can fail with 
         // ECONNRESET or EPIPE. this isn't really a problem, so just ignore these errors
@@ -294,7 +294,7 @@ int Http_Server_handleclient(Http_Server *server, int client_index, char *dir) {
 
     // Send everything out
     while (sent < send_len) {
-        size_t n = send(server->pfds[client_index].fd, tosend + sent, send_len - sent, 0);
+        ssize_t n = send(server->pfds[client_index].fd, tosend + sent, send_len - sent, 0);
         if (n < 0) {
             perror("send");
             break;

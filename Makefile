@@ -12,7 +12,7 @@ BIN_DIR = bin
 # include headers
 INCLUDES = -I$(INCLUDE_DIR)
 
-all: $(BIN_DIR) $(BIN_DIR)/main 
+all: $(BIN_DIR) $(BIN_DIR)/http-server
 
 # check if bin exists
 $(BIN_DIR):
