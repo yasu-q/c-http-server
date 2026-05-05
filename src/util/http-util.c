@@ -190,12 +190,14 @@ int parse_header(Header *header, char **request) {
     header_line = substr_prev(*request, RN); // This mallocs. Free later
     if (header_line == NULL) {
         fprintf(stderr, "parse_header: unable to find \\r\\n in header line\n");
+        free(header_line);
         return HTTP_UTIL_INVALID_FORMAT;
     }
     // Line after start line. Jump the \r and \n characters
     after_line = strstr(*request, RN);
     if (after_line == NULL) {
         fprintf(stderr, "parse_header: strstr() failed\n");
+        free(header_line);
         return HTTP_UTIL_STRFUN_FAIL;
     }
     after_line = after_line + RN_LEN; // Skip \r\n
